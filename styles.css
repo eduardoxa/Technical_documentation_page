@@ -1,0 +1,125 @@
+/** form styles 
+font-family: 'Roboto', sans-serif;
+font-family: 'Libre Caslon Text', serif;
+**/
+/**General Style**/
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	font-family: 'Libre Caslon Text', serif;
+	background: rgb(176,224,230, 0.5);
+	min-width: 400px;
+	
+}
+
+/**Header**/
+
+#navbar{
+	position: fixed;
+	min-width: 250px;
+	height: 100%;
+	border-right: 2px solid #000;
+	line-height: 3.0;
+	font-family: 'Libre Caslon Text', serif;
+}
+#header-navbar{
+	text-align: center;
+	margin: 10px;
+	text-transform: uppercase;
+	font-size: 18px;
+	font-weight: bold;
+}
+.nav-link{
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: bold;
+}
+#navbar ul{
+	list-style: none;
+	margin-top: 8px;
+	margin-left: 8px;
+	margin-right: 8px;
+	text-align: center;
+}
+#navbar li{
+	background-color: rgb(192,192,192, 0.7);
+	border-top: 2px solid #FFF;
+	border-right:2px solid #FFF;
+	border-left:2px solid #FFF;
+	padding-left: 0px;
+	border-radius: 10px;
+}
+#navbar a{
+	text-decoration: none;
+	color: #000;
+}
+#navbar a:hover{
+	font-size: 14px;
+}
+#main-document{
+	display: flex;
+	flex-direction: column;
+}
+.main-section{
+	display: flex;
+	margin-left: 260px;
+	margin-top: 10px;
+}
+.main-section header{
+	display: flex;
+	flex-direction: column;
+	font-family: 'Roboto', sans-serif;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 10px;
+	background-color: rgb(192,192,192, 0.7);
+	width: 95%;
+	border-radius: 5px;
+	margin-bottom: 30px;
+}
+.main-section article{
+	display: flex;
+	flex-direction: column;
+	margin-left: 15px; 
+}
+p{
+	font-size: 14px;
+	max-width: 90%;
+	text-align: justify;
+	margin-left: 10px;
+	line-height: 2;
+}
+article li{
+	font-size: 14px;
+	max-width: 80%;
+	text-align: justify;
+	margin-left: 30px;
+	line-height: 2;
+}
+heading li{
+	font-size: 14px;
+	list-style: none;
+	margin-left: 10px;
+	font-weight: bold;
+}
+
+/**Media**/
+@media screen and (max-width: 600px) {
+   body{
+   	display: flex;
+	flex-direction: column;
+   }
+   #main-document {
+     margin-left: -250px;
+     margin-right: -10px;
+     margin-top: 500px;
+   }
+   #navbar{
+	position: absolute;
+	min-width: 100%;
+	border-right: none;
+	}
+}

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="styles.css">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet"/>
+	<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text&display=swap" rel="stylesheet"/>
+	<meta charset="UTF-8">
+	<meta name="description" content="Technical Documentation Page">
+	<meta name="author" content="Eduardo X.">
+	<meta name="keywords" content="drone, uav, unmanned aircraft, technical specifications">
+	<meta name="viewport" content="width=device=width, initial-scale=1.0"> 
+	<title>
+		DRONES
+	</title>
+</head>
+<body>
+	<nav id="navbar">
+		<header id="header-navbar">All About Drones!</header>
+		<ul>
+			<li>
+				<a class="nav-link" href="#Introduction">Introduction</a>
+			</li>
+			<li>
+				<a class="nav-link" href="#Safety">Safety</a>
+			</li>
+			<li>
+				<a class="nav-link" href="#Technical specifications">Technical Specifications</a>
+			</li>
+			<li>
+				<a class="nav-link" href="#Learn To Fly">Learn To Fly</a>
+			</li>
+			<li>
+				<a class="nav-link" href="#Operation Manual">Operation Manual</a>
+			</li>
+			<li>
+				<a class="nav-link" href="#Maintenance">Maintenance</a>
+			</li>
+			
+			<li>
+				<a class="nav-link" href="#Troubleshooting">Troubleshooting</a>
+			</li>
+
+			<li>
+				<a class="nav-link" href="#Reference">Reference</a>
+			</li>
+		</ul>
+	</nav>
+
+	<main id="main-document">
+		<section class="main-section" id="Introduction">
+			<div>
+				<div>
+					<header>Introduction</header>
+					<article>
+						<p>
+							What are they and who uses them? Some call them drones, some apply the label “quadcopters” as a blanket term—though they can have any number of rotors or even be planes—the FAA calls them “unmanned aerial systems” (UAS). I prefer to call them “unmanned aerial vehicles” (UAVs), a neutral term broad enough to safely include pretty much the whole gamut, from Hubsan nano drones up to commercial and military aircraft weighing hundreds of pounds and basically the size of small manned planes.
+						</p>
+						<br/>
+						<p>
+							UAVs are and aren't new. Starting somewhere around 2013, a new trend emerged in the tech toy and aerial imaging market—an explosion in popularity of compact multi-rotor RC aircraft, perhaps most notably the DJI Phantom 4, a compact quadcopter featuring a gimbal-stabilized aerial camera. RC enthusiasts will, of course, cry foul. They will point out RC—unmanned—aircraft have been around for decades—nay, longer*—not to mention that pilots have been equipping them with cameras for FPV since cameras got small and video transmitters got cheap. While this is true, the market was always a niche one, the exclusive realm of dedicated model-builders (a handful of professional users aside) to whom few on the outside paid much attention or of whom they were even aware.
+						</p>
+						<br/>
+						<p>
+							If there is one overwhelming breakthrough that put consumer and prosumer UAVs on the map, it was computerized flight-control systems and multi-rotor technology, the latter not possible without the former. Traditional RC aircraft require skill to fly and many become quite expensive (you may have to remortgage your house to pay for some). Many are powered by tiny gas engines, some even turbines, and fly at scaled speeds competitive with manned aircraft. Multi-rotor UAVs, as distinct for helicopters by virtue of the complexity of their control systems, require a computer to regulate control input. Unlike planes, there is no rudder, no ailerons; just propellers. The only way to modulate flight is by spinning the rotors at different speeds, and there is just no way to do this manually. A side effect of this fly-by-wire implementation is that they can basically pilot themselves, especially when equipped with GPS, optical flow, and other guidance systems. This means just about anyone can fly; though I suppose it’s an open question if just anyone should fly.
+						</p>
+						<br/>
+						<p>
+							Because they can follow very precise flight patterns, as well as hover in a fixed position (assuming GPS or optical flow), it was inevitable that one of the most popular-use cases for multi-rotors would be imaging. And, as luck would have it, at the same time, HD and 4K cameras have gotten really compact and really cheap (compared to the quality that they pump out), making strapping one to a UAV pretty much a no-brainer.
+						</p>
+					</article>
+				</div>
+			</div>	
+		</section>
+
+		<section class="main-section" id="Safety">
+			<div>
+				<div>
+					<header>Safety</header>
+					<article>
+						<p>
+							UAVs are airborne vehicles that can travel at high speed—up to 50 mph or so for multi-rotor camera platforms, and much faster for fixed-wing planes and RC rotorcraft (i.e., conventional helis). Inherently, they have the potential to be very dangerous. Most safety advice takes the form of common sense, but common sense that all too often gets ignored. Here are some general tips to consider:
+						</p>
+						<br/>
+						<ul>
+							<li>Follow all pre-flight calibration steps very closely, especially compass and GPS calibration</li>
+							<li>Maintain visual contact at all times—FPV does not count as “visual contact”</li>
+							<li>Stay below 400' above ground level (AGL); in certain locales, even lower</li>
+							<li>Do not fly over people, private property, or in urban settings</li>
+							<li>Do not fly within 5 miles of airports, in restricted airspace, or near helipads</li>
+							<li>Learn how to control your aircraft manually, even if you plan to use autopilot functionality in practice; consider investing in a “starter” aircraft or flight simulator software to get experience flying</li>
+						</ul>
+						<br/>
+						<p>
+							Beyond these general tips, your best resource will be other fliers. In particular, consult RC clubs in your local area and contact members of organizations like the AMA for advice. Even if you don’t see yourself as a hobbyist, RC clubs will have the best advice in terms of dos and don’ts, and should be able to direct you to courses, should you wish to learn from an instructor or need assistance troubleshooting.
+						</p>
+					</article>	
+				</div>
+			</div>
+		</section>
+
+		<section class="main-section" id="Technical specifications">
+			<div>
+				<div>
+					<header>Technical specifications</header>
+					<article>
+						<p>UVAs break, with some variation, into these components:</p>
+						<br/>
+						<ul>
+							<heading><li>Main Controller (MC)</li></heading>
+								<br/>
+								<p>The heart of the flight-control system, this can be thought of as the “brains” of the UAV. It is an embedded computer (many run Linux) that has custom software for controlling the aircraft, sometimes user-reprogrammable through a software development kit (SDK). In some designs, the MC is a separate module with connection ports. On others, especially consumer products, there may be a single circuit board (PCB) that includes the MC, gyros/sensors, electronic speed controllers (ESCs), and other core flight electronics.</p>
+								<br/>
+								<p>With modular designs, some form of connectivity—analogous to SATA ports inside a computer—is provided, allowing peripherals and user upgrades to be installed. CAN-Bus is widely used. This is an automotive serial interface technology developed in the 1980s that has been repurposed in a diverse range of control-by-wire vehicles including, among other things, combines.</p>
+								<br/>
+								<p>Modular systems have the advantage that they can usually be replaced or upgraded. Early on, a major part of DJI’s business model was selling its Naza-M and triple-redundant A3 Pro flight controllers to third-party UAV makers and individual multi-rotor builders.</p>
+								<br/>
+							<heading><li>Gyros/Sensors</li></heading>
+								<br/>
+								<p>For autonomy to work, the MC needs to track how the aircraft is flying. To accomplish this, some form of sensor array is provided. Generally, it will include accelerometers, inertial measurement units (IMUs), and gyros, and may also work in conjunction with positional data from an optical flow system or GPS/compass. Basically, these sensors tell the UAV how fast its acceleration is changing, in what direction, and whether it is right-side up. Those familiar with motorized gimbal camera stabilizers may recognize the same sensor technology being employed here as in gimbals.</p>
+								<br/>
+							<heading><li>Electronic Speed Controllers (ESCs)</li></heading>
+								<br/>
+								<p>Each motor has an ESC (though some designs put all on one board). In its most basic form, an ESC regulates power going to the motor with which it is paired. More sophisticated systems can also relay data back to the MC, such as vitals about how the motors are performing. With six or more rotors, active feedback makes it possible to keep flying (enough to land safety) if one motor fails.</p>
+								<br/>
+							<heading><li>Receiver</li></heading>
+								<br/>
+								<p>This receiver is for the radio control system. It pairs (“binds”) with the controller the pilot or operator holds, which logically, if confusingly, is known as the “transmitter.” Modern receivers typically operate in the 2.4GHz range (like other license-free radio systems, such as Wi-Fi) and have four or more channels, extra channels enabling custom functionality to be relayed via the control signal, in addition to basic piloting inputs. In the hobby world, these extra channels might be used for anything from retracting/extending landing gear to firing off a smoke generator. In aerial imaging applications, the extra channels can sometimes be dedicated to gimbal or camera control.</p>
+								<br/>
+							<heading><li>Motors</li></heading>
+								<br/>
+								<p>In most cases, these are brushless electric motors. The motors are usually paired, each pair a set containing one clockwise (CW) motor partnered with one counterclockwise (CCW) rotating motor, though they may be sold individually. It is important when replacing them or building your own system to use the correct rotational direction in the correct position. This can get confusing, because the propellers are often designated CW or CCW based on which way they screw on, not which way they rotate—which is probably the opposite direction!</p>
+								<br/>
+							<heading><li>Propellers</li></heading>
+								<br/>
+								<p>Light UAVs use plastic propellers, which resist breaking on impact because they are flexible, and they are safer. Heavier models use carbon fiber or other more rigid materials (planes frequently use wood or nylon/glass). Carbon fiber propellers are dangerous, even deadly, and should be used only by experienced pilots and well away from people. Unless extreme performance is a concern, the benefits of carbon fiber over plastic are marginal on multi-rotors.</p>
+								<br/>
+							<heading><li>Transmitter</li></heading>
+								<br/>
+								<p>This is the radio controller. For an increasing number of tech toy and entry-level UAVs, the “transmitter” is simply the combination of a mobile app and a Wi-Fi-enabled tablet or smartphone (Parrot uses Wi-Fi control for all of its quadcopters). UAVs equipped with receivers, such as Spektrum and Futaba, can work with a range of transmitters. This allows the user to select the best fit, depending on what features they are looking for and what their budget might be. It should be noted: these tend to be proprietary, so with a Brand X receiver you'll probably need a Brand X or, at the very least, a Brand X-compatible transmitter. Systems that include a transmitter (as well as other basic accessories required for flying) are dubbed “ready-to-fly,” and are the simplest to jumpstart the beginner.</p>
+								<br/>
+								<p>When investing in a transmitter, generally, compatibility can be determined by referring to the specs for the receiver. It will need to support the same protocol as the receiver and support at least as many channels as the receiver requires. So, for example, a DSMX 4-channel receiver will work happily with a DSMX 6-channel transmitter. For advanced configurations, one also needs to consider secondary systems that will need to inter-operate with the transmitter, such as a telemetry radio.</p>
+								<br/>
+								<p>Transmitters can range anywhere from simple two-joystick jobs for remote-control toys up to highly sophisticated pieces of electronics with advanced programming to support myriad aircraft configurations, expandable model memory, telemetry displays, audible feedback, and trainer ports. In many ways, high-end transmitters are more complex than aircraft they fly.</p>
+								<br/>
+						</ul>
+					</article>
+				</div>
+			</div>	
+		</section>
+
+		<section class="main-section" id="Learn To Fly">
+			<div>
+				<div>
+					<header>Learn To Fly</header>
+					<article>
+						<p>Any UAV pilot will tell you that learning to pilot a quadcopter in an enclosed space is asking for something to go wrong – either with you, your belongings, or the drone itself.</p>
+						<br/>
+						<p>As you get more experienced, and your control becomes natural, flying in tight spaces will be a cinch.</p>
+						<br/>
+						<p>But as a beginner, choose a place that will minimize the impact any mistakes might have.</p>
+						<br/>
+						<p>We suggest starting out in a large, open space, such as a park or a field. Many people prefer to learn on grassy ground, so if the quadcopter needs to make a crash landing, it will at least have some sort of cushion.</p>
+						<br>
+						<p>It’s often challenging to find a legal, safe, and visually interesting location to fly your drone, especially in a densely populated area with one or more airports.</p>
+						<br>
+						<p>After a round of comprehensive research, our team compiled a list of where to fly a drone in various cities across the country.</p>
+						<br/>
+						<p>Next, stay away from people or animals. Any crashes could cause serious injury.</p>
+						<br/>
+						<p>And finally, wind can be your worst enemy when learning the nuances of flying. To reduce the chance of flying in the wind, try to fly in the morning.</p>
+						<br>
+					</article>
+				</div>
+			</div>	
+		</section>
+
+		<section class="main-section" id="Operation Manual">
+			<div>
+				<div>
+					<header>Operation Manual</header>
+					<article>
+						<p>This document is required by anyone wishing to gain their own PfCO from the CAA. Your operations manual should include information about the specific missions you will be completing with your UAV, covering aspects such as the platform(s) you will be flying and your personal procedures and checklists to ensure a safe operation. Your operations manual is effectively a contract between yourself and the CAA. As a result, your Operations Manual is used to perform checks and balances on your operations should something go wrong when completing your commercial operations using a UAV.</p>
+						<br/>
+						<p>The CAA has provided a free template, available to download online, and we also have our own template that is provided for you on our learning portal when you complete our course. The template clarifies everything that the CAA will expect to see in any operations manual that is submitted to them for review. There are four sections; A, B, C and D.</p>
+						<br/>
+						<p>Section A of your Operations Manual should detail your company's policy for commercial work using a drone, including what your SUA (Small Unmanned Aircraft) will do in your operation, who will be accountable and how long you are willing to work for. You are asked to demonstrate compliance with the Air Navigation Order, so knowledge of the conditions is imperative. At UAVAir, we help all of our candidates with this process, offering an additional template and video guides to take you through each section needed to write a thorough, compliant operations manual.<p>
+						<br/>
+						<p>Section B should cover how the drone will be flown from a health and safety perspective. Most importantly, this should cover your emergency procedure and how to deal with an emergency situation. In this area of the manual, candidates must detail how they will have full awareness of the sites they will be operating in. For example, how they will notify people in the area and how they plan to obtain landowner permission.</p>
+						<br/>
+						<p>Section C requires evidence of the training that has been completed by the pilot. This includes documentation proving knowledge of how to stay current and the checks and balances that are in place for any additional people flying the drone as part of the company (whom also need the correct qualifications.) Pilots flying for larger companies must also include details of any other people in their business who are also qualified to fly, such as camera operators.</p>
+						<br/>
+						<p>Finally, section D contains many appendices, where a full copy of the CAA Permission and the conditions that are outlined in it must be present. Flight planning forms, site assessments and risk assessments should also be included in this important section.</p>
+						<br>
+						<p>Preparing and creating a successful operations manual may seem like a daunting task, but it is a necessary part of becoming a commercial UAV pilot with good airmanship and a solid commercial business. At UAVAir we enlist each of our candidates with the theoretical knowledge needed in order to write their operations manual, as well as offering continued support throughout the entire process of applying for a PfCO.</p>
+						<br/>
+					</article>
+				</div>
+			</div>	
+		</section>
+
+		<section class="main-section" id="Maintenance">
+			<div>
+				<div>
+					<header>Maintenance</header>
+					<article>
+						<heading><li>Calibration</li></heading>
+						<br/>
+						<p>You will need: Mission Planner Software, telemetry module with its USB power cord, fully charged battery. </p>
+						<br/>
+						<ol>
+							<li>Download and open Mission Planner Software.</li>
+							<li>Plug telemetry unit into computer with its USB power cord.</li>	
+							<li>Connect battery to craft.</li>
+							<li>Set COMM Port (upper right hand corner) to specific USB port.</li>
+							<li>Set speed of connection to 57600. Press connect.</li>
+							<li>Enter Initial Set-up>Mandatory Hardware>Accel Calibration.</li>	
+							<li>Click and follow prompts for Calibrate Accel.</li>
+							<li>Set craft upright and select Calibrate Level, follow prompts.</li>
+							<li>Select Compass (under Mandatory Hardware). Set Orientation to Manual-Rotation_Pitch_90.</li>
+							<li>Select Live Calibration and follow prompts.</li>
+							<li>Select Disconnect in Mission Planner (top right corner).</li>
+						</ol>
+						<br/>
+						<heading><li>MAC</li></heading>
+						<br/>
+						<p>You will need: QGroundControl Software, VCP Driver installed on your computer, telemetry module with its USB powercord, fully charged battery.  </p>
+						<br/>
+						<ol>
+							<li>Download and open QGroundControl Software.</li>
+							<li>Plug telemetry unit into computer with its USB power cord</li>	
+							<li>Connect battery to craft.</li>
+							<li>Select settings option (gear image).</li>
+							<li>Select Sensors>Accelerometer>set AutoPIlot Orientation to Roll180Pitch90>Okay>Follow prompts to calibrate.</li>
+							<li>Select Compass>set Compass 1 Orientation to Pitch90>follow image prompts to orient.</li>	
+							<li>Disconnect telemetry.</li>
+						</ol>
+						<br/>	
+					</article>
+				</div>
+			</div>	
+		</section>
+
+		<section class="main-section" id="Troubleshooting">
+			<div>
+				<div>
+					<header>Troubleshooting</header>
+					<article>
+						<heading><li>Won't arm:</li></heading>
+						<br/>
+						<p>If your Drone won’t arm, check to see if you have a GPS signal. The craft needs a GPS lock before it will arm</p>
+						<br/>
+						<heading><li>Won’t achieve GPS Lock:</li></heading>
+						<br/>
+						<p>If your Drone won’t achieve a GPS lock, look for a blue light inside the compass. The blue light signifies a GPS lock, a green light means it is still searching. Be sure that you are clear from trees, buildings, hills, etc. After powering on your craft, allow up to 5 minutes for the craft to connect. Depending on weather and number of satellites available, your craft may take a much shorter time. If you cannot get a GPS lock, recycle power by disconnecting and reconnecting the battery. If you still cannot get a GPS lock, calibrate your X PlusOne.</p>
+						<br/>
+						<heading><li>Craft is “toilet bowling” in the air:</li></heading>
+						<br/>
+						<p>If your craft is making a toilet bowl motion in the air, spinning and not holding location, it is very likely a GPS connection issue. Recalibrate your craft and make sure that you have plenty of satellites and a strong signal. If the craft is still toilet bowling, check behind the top pylon to make sure that the PixFalcon is secure. If it is loose, stuff hot glue into the gap to secure it inside the craft</p>
+						<br/>
+						<heading><li>Craft won’t hold a loiter position: </li></heading>
+						<br/>
+						<p>*See above.</p>
+						<br/>
+						<heading><li>Won’t connect to Mission Planner Software:</li></heading>
+						<br/>
+						<p>If your craft won’t connect to a computer software, recycle power by disconnecting then reconnecting the battery to your craft. Eject, then reinsert the USB telemetry cable to your computer and make sure that you have the correct COM port selected in the software. </p>
+						<br/>
+					</article>
+				</div>
+			</div>	
+		</section>
+
+		<section class="main-section" id="Reference">
+			<div>
+				<div>
+					<header>Reference</header>
+					<article>
+						<ul>
+							<li>All documentation in this document was taken from<a href="www.google.com" target="_blank"> www.google.com</a></li>
+						</ul>
+					</article>
+				</div>
+			</div>
+		</section>
+
+	<a href='https://postimg.cc/KKJpSS5T' target='_blank'><img src='https://i.postimg.cc/KKJpSS5T/index-1.jpg' border='0' alt='index-1'/></a>
+	</main>
+</body>
+</html>
